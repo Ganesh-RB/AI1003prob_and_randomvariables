@@ -156,7 +156,8 @@ For $n \geq 1$, let $X_n$ be a Poisson random  variable with mean $n^2$.
 
 \section{Solution}
 Let $Y_i$ be a Poisson random variable with mean $1$ for $i$ $\in$ $\brak{1,n^2}$
-\\[2ex]By additive property of Poisson distribution
+\vspace{0.5cm}
+\\By additive property of Poisson distribution
 \begin{align}
    { \sum \limits_{i}^{n^2} Y_i = X_n   }  
 \end{align}
@@ -178,23 +179,24 @@ Now
     \label{eq-cdf}
 \end{align}
 }
-\\[4ex]
-Also
+\vspace{0.2cm}
+\\Also
 \begin{align}
     \frac{1}{\sqrt{2\pi}} \int \limits_2^{\infty} e^{-x^2/2}\,dx=& Q\brak{2}
     \\\frac{1}{\sqrt{2\pi}} \int \limits_2^{\infty} e^{-x^2/2}\,dx=&1-Q\brak{-2}
 \end{align}
-\\[4ex]
+\vspace{0.4cm}
+\\
 {
-\small
-1) $\lim \limits_{n \to \infty} $ \pr{X_n > (n+1)^2}
+\begin{enumerate}
+\item $\lim \limits_{n \to \infty} $ \pr{X_n > (n+1)^2}
 \begin{align}
     \lim \limits_{n \to \infty} \pr{X_n > (n+1)^2} =& \lim \limits_{n \to \infty}Q \brak{\frac{(n+1)^2-n^2}{n}}
     \\=&Q\brak{2}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 1 is correct}
-\\[8ex]
-2) $\lim \limits_{n \to \infty} $ \pr{X_n \leqslant (n+1)^2}
+\vspace{0.4cm}
+\item $\lim \limits_{n \to \infty} $ \pr{X_n \leqslant (n+1)^2}
 \begin{align}
     \lim \limits_{n \to \infty}  \pr{X_n \leqslant (n+1)^2} =&1-\lim \limits_{n \to \infty}  \pr{X_n > (n+1)^2}
     \\=&1- \lim \limits_{n \to \infty}Q \brak{\frac{(n+1)^2-n^2}{n}}
@@ -202,21 +204,24 @@ $\mathbf{\therefore}$ \textbf{Option 1 is correct}
 \end{align}
 
 $\mathbf{\therefore}$ \textbf{Option 2 is incorrect}
-\\[4ex]3) $\lim \limits_{n \to \infty} $ \pr{X_n < (n-1)^2}
+\vspace{4pt}
+\item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-1)^2}
 \begin{align}
     \lim \limits_{n \to \infty}  \pr{X_n < (n-1)^2} =& 1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-1)^2}
     \\=&1-\lim \limits_{n \to \infty}Q \brak{\frac{(n-1)^2-n^2}{n}}
     \\=& 1-Q \brak{-2}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 3 is also correct}
-\\[4ex]
-4) $\lim \limits_{n \to \infty} $ \pr{X_n < (n-2)^2}
+\vspace{0.4cm}
+\item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-2)^2}
 \begin{align}
     \lim \limits_{n \to \infty}  \pr{X_n < (n-2)^2} =& 1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-2)^2}
     \\=&1-\lim \limits_{n \to \infty}Q \brak{\frac{(n-2)^2-n^2}{n}}
     \\=&1- Q \brak{-4}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 4 is incorrect}
+\end{enumerate}
 }%
+
 
 \end{document}

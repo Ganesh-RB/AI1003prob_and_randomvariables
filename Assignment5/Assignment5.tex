@@ -183,14 +183,15 @@ Now
 \\Here
 \begin{align}
     Q\brak{X}=1-Q\brak{-x}
+    \label{eq-Qx}
 \end{align}
 \begin{center}
     $\because \,{\frac{1}{\sqrt{2\pi}} \int \limits_{-x}^{\infty} e^{-x^2/2}\,dx}\,=\,{\frac{1}{\sqrt{2\pi}} \int \limits_{-\infty}^x e^{-x^2/2}\,dx}$
+    \\ and \quad $\frac{1}{\sqrt{2\pi}} \int \limits_{-\infty}^{\infty} e^{-x^2/2}\,dx\,=1$
 \end{center}
 Also
 \begin{align}
     \frac{1}{\sqrt{2\pi}} \int \limits_2^{\infty} e^{-x^2/2}\,dx=& Q\brak{2}
-    \\\frac{1}{\sqrt{2\pi}} \int \limits_2^{\infty} e^{-x^2/2}\,dx=&1-Q\brak{-2}
 \end{align}
 \vspace{0.4cm}
 \\
@@ -208,15 +209,18 @@ $\mathbf{\therefore}$ \textbf{Option 1 is correct}
     \lim \limits_{n \to \infty}  \pr{X_n \leqslant (n+1)^2} =&1-\lim \limits_{n \to \infty}  \pr{X_n > (n+1)^2}
     \\=&1- \lim \limits_{n \to \infty}Q \brak{\frac{(n+1)^2-n^2}{n}}
     \\=&1- Q \brak{2}
+    \\ =& Q\brak{-2} > Q\brak{2}
+    % \\ \lim \limits_{n \to \infty}  \pr{X_n \leqslant (n+1)^2} >&  
 \end{align}
 
 $\mathbf{\therefore}$ \textbf{Option 2 is incorrect}
-\vspace{4pt}
+\vspace{0.4cm}
 \item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-1)^2}
 \begin{align}
     \lim \limits_{n \to \infty}  \pr{X_n < (n-1)^2} =& 1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-1)^2}
     \\=&1-\lim \limits_{n \to \infty}Q \brak{\frac{(n-1)^2-n^2}{n}}
     \\=& 1-Q \brak{-2}
+    \\=& Q\brak{2}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 3 is also correct}
 \vspace{0.4cm}
@@ -225,6 +229,7 @@ $\mathbf{\therefore}$ \textbf{Option 3 is also correct}
     \lim \limits_{n \to \infty}  \pr{X_n < (n-2)^2} =& 1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-2)^2}
     \\=&1-\lim \limits_{n \to \infty}Q \brak{\frac{(n-2)^2-n^2}{n}}
     \\=&1- Q \brak{-4}
+    \\=& Q\brak{4} < Q \brak{2}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 4 is incorrect}
 \end{enumerate}

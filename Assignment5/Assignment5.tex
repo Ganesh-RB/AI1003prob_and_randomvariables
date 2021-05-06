@@ -195,7 +195,7 @@ Also
 \end{align}
 \vspace{0.4cm}
 \\
-{\small
+{
 \begin{enumerate}
 \item $\lim \limits_{n \to \infty} $ \pr{X_n > (n+1)^2}
 \begin{align}
@@ -206,7 +206,9 @@ $\mathbf{\therefore}$ \textbf{Option 1 is correct}
 \vspace{0.4cm}
 \item $\lim \limits_{n \to \infty} $ \pr{X_n \leqslant (n+1)^2}
 \begin{align}
-    \lim \limits_{n \to \infty}  \pr{X_n \leqslant (n+1)^2} =&1-\lim \limits_{n \to \infty}  \pr{X_n > (n+1)^2}
+\begin{split}
+    \lim \limits_{n \to \infty} & \pr{X_n \leqslant (n+1)^2}\\ =&1-\lim \limits_{n \to \infty}  \pr{X_n > (n+1)^2}
+\end{split}
     \\=&1- \lim \limits_{n \to \infty}Q \brak{\frac{(n+1)^2-n^2}{n}}
     \\=&1- Q \brak{2}
     \\ =& Q\brak{-2} > Q\brak{2}
@@ -217,7 +219,9 @@ $\mathbf{\therefore}$ \textbf{Option 2 is incorrect}
 \vspace{0.4cm}
 \item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-1)^2}
 \begin{align}
-    \lim \limits_{n \to \infty}  \pr{X_n < (n-1)^2} =& 1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-1)^2}
+\begin{split}
+    \lim \limits_{n \to \infty} & \pr{X_n < (n-1)^2}\\ =&1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-1)^2}
+\end{split}
     \\=&1-\lim \limits_{n \to \infty}Q \brak{\frac{(n-1)^2-n^2}{n}}
     \\=& 1-Q \brak{-2}
     \\=& Q\brak{2}
@@ -226,7 +230,9 @@ $\mathbf{\therefore}$ \textbf{Option 3 is also correct}
 \vspace{0.4cm}
 \item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-2)^2}
 \begin{align}
-    \lim \limits_{n \to \infty}  \pr{X_n < (n-2)^2} =& 1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-2)^2}
+   \begin{split}
+    \lim \limits_{n \to \infty} & \pr{X_n < (n-2)^2}\\ =&1-\lim \limits_{n \to \infty}  \pr{X_n \geq (n-2)^2}
+\end{split}
     \\=&1-\lim \limits_{n \to \infty}Q \brak{\frac{(n-2)^2-n^2}{n}}
     \\=&1- Q \brak{-4}
     \\=& Q\brak{4} < Q \brak{2}

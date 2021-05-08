@@ -121,7 +121,7 @@ columns=fullflexible
      \def\centbox#1{\makebox[0in]{#1}}
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
-\vspace{3cm}
+
 
 
 
@@ -156,7 +156,6 @@ For $n \geq 1$, let $X_n$ be a Poisson random  variable with mean $n^2$.
 
 \section{Solution}
 Let $Y_i$ be a Poisson random variable with mean $1$ for $i$ $\in$ $\brak{1,n^2}$
-\vspace{0.5cm}
 \\By additive property of Poisson distribution
 \begin{align}
    { \sum \limits_{i}^{n^2} Y_i = X_n   }  
@@ -171,39 +170,38 @@ By central limit theorem
 Here, $\mathcal{N}\brak{0,1}$ is normal distribution with unit mean and variance
 
 Now 
-{
+
 \begin{align}
     \pr{X_n>k} =& \pr{\frac{X_n-n^2}{n}>\frac{k-n^2}{n}}
     \\=& \pr{\mathcal{N}\brak{0,1}>\frac{k-n^2}{n}}
     \\ =& Q\brak{\frac{k-n^2}{n}}
     \label{eq-cdf}
 \end{align}
-}
-\vspace{0.2cm}
-\\Here
+
+Here
 \begin{align}
     Q\brak{X}=1-Q\brak{-x}
     \label{eq-Qx}
 \end{align}
-\begin{center}
-    $\because \,{\frac{1}{\sqrt{2\pi}} \int \limits_{-x}^{\infty} e^{-x^2/2}\,dx}\,=\,{\frac{1}{\sqrt{2\pi}} \int \limits_{-\infty}^x e^{-x^2/2}\,dx}$
-    \\ and \quad $\frac{1}{\sqrt{2\pi}} \int \limits_{-\infty}^{\infty} e^{-x^2/2}\,dx\,=1$
-\end{center}
+\begin{align*}
+    \because \,{\frac{1}{\sqrt{2\pi}} \int \limits_{-x}^{\infty} e^{-x^2/2}\,dx}\,=\,{\frac{1}{\sqrt{2\pi}} \int \limits_{-\infty}^x e^{-x^2/2}\,dx}
+    \\ \text{and} \quad \frac{1}{\sqrt{2\pi}} \int \limits_{-\infty}^{\infty} e^{-x^2/2}\,dx\,=1
+\end{align*}
+
 Also
 \begin{align}
     \frac{1}{\sqrt{2\pi}} \int \limits_2^{\infty} e^{-x^2/2}\,dx=& Q\brak{2}
 \end{align}
-\vspace{0.4cm}
-\\
-{
+
 \begin{enumerate}
+\setlength\itemsep{1em}
 \item $\lim \limits_{n \to \infty} $ \pr{X_n > (n+1)^2}
 \begin{align}
     \lim \limits_{n \to \infty} \pr{X_n > (n+1)^2} =& \lim \limits_{n \to \infty}Q \brak{\frac{(n+1)^2-n^2}{n}}
     \\=&Q\brak{2}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 1 is correct}
-\vspace{0.4cm}
+
 \item $\lim \limits_{n \to \infty} $ \pr{X_n \leqslant (n+1)^2}
 \begin{align}
 \begin{split}
@@ -212,11 +210,10 @@ $\mathbf{\therefore}$ \textbf{Option 1 is correct}
     \\=&1- \lim \limits_{n \to \infty}Q \brak{\frac{(n+1)^2-n^2}{n}}
     \\=&1- Q \brak{2}
     \\ =& Q\brak{-2} > Q\brak{2}
-    % \\ \lim \limits_{n \to \infty}  \pr{X_n \leqslant (n+1)^2} >&  
 \end{align}
 
 $\mathbf{\therefore}$ \textbf{Option 2 is incorrect}
-\vspace{0.4cm}
+
 \item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-1)^2}
 \begin{align}
 \begin{split}
@@ -227,7 +224,7 @@ $\mathbf{\therefore}$ \textbf{Option 2 is incorrect}
     \\=& Q\brak{2}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 3 is also correct}
-\vspace{0.4cm}
+
 \item $\lim \limits_{n \to \infty} $ \pr{X_n < (n-2)^2}
 \begin{align}
    \begin{split}
@@ -239,7 +236,7 @@ $\mathbf{\therefore}$ \textbf{Option 3 is also correct}
 \end{align}
 $\mathbf{\therefore}$ \textbf{Option 4 is incorrect}
 \end{enumerate}
-}%
+
 
 
 \end{document}

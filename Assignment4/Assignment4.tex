@@ -141,7 +141,7 @@ https://github.com/Ganesh-RB/AI1103prob-and-randomvariables/Assignment4
 \end{lstlisting}
 
 \section{Problem}
-(CSIR UGC NET EXAM (Dec 2012) ) Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
+CSIR UGC NET EXAM (Dec 2012) Q 51\\ Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
 \begin{multicols}{4}
 \begin{enumerate}
     \item $4$
@@ -150,37 +150,58 @@ https://github.com/Ganesh-RB/AI1103prob-and-randomvariables/Assignment4
     \item $12$
 \end{enumerate}
 \end{multicols}
+
 \section{Solution}
-$X_i ,i \in \cbrak{1..4}$ are i.i.d random variables with
+By defining ${Z}$ transform of $X_i$ as $X_i\sbrak{z}$ for $i \in \cbrak{1,2,3,4} $
 \begin{align}
-    \pr{X_i=+1}=&\frac{1}{2}
-    \\\pr{X_i=-1}=&\frac{1}{2}
+    X_i\sbrak{z}=\frac{1}{2}\cdot z + \frac{1}{2} \cdot z^{-1}=\frac{z+z^{-1}}{2}
 \end{align}
 
-\vspace{0.4cm}
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|}
-         \hline
-          $Y$ & $\pr{Y}$ \\
-         \hline
-          $0$ & ${3}/{8}$ \\
-         \hline
-          $16$ & ${1}/{2}$ \\
-         \hline
-          $256$ & ${1}/{8}$ \\
-         \hline
-    \end{tabular}
-    \caption{probability}
-    \label{tab:probability_Y}
-\end{table}
-
+Let $Y=X_1+X_2+X_3+X_4$ , then
 \begin{align}
-    E\brak{Y}=& \sum_k k\times \pr{Y=k}
-    \\=& 0\times \frac{3}{8} + 16\times\frac{1}{2} + 256\times\frac{1}{8}
-    \\=&40
+    Y\sbrak{z}=& X_1\sbrak{z} \cdot X_2\sbrak{z} \cdot X_3\sbrak{z} \cdot X_4\sbrak{z} 
+    \\ =& \brak{\frac{z+z^{-1}}{2}}^4
+    \label{eq-z_Transf_Y}
 \end{align}
 
-$\displaystyle{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4 = 40}$
+Taking derivatives of $Y\sbrak{z}$
+\begin{align}
+    \sbrak{\frac{d}{dz}Y\sbrak{Z}}_{z=1} =& E\sbrak{Y}
+    \label{eq:d1}
+    \\=&\frac{z^{3}}{4} + \frac{z}{2} - \frac{1}{2 z^{3}} - \frac{1}{4 z^{5}}
+    \\=&0
+\end{align}    
+    
+\begin{align}
+    \sbrak{\frac{d^2}{dz^2}Y\sbrak{Z}}_{z=1} =& E\sbrak{Y^2}-E\sbrak{Y}
+    \label{eq:d2}
+    \\=&\frac{3 z^{2}}{4} + \frac{1}{2} + \frac{3}{2 z^{4}} + \frac{5}{4 z^{6}}
+    \\=&4
+\end{align}    
+    
+\begin{align}
+     \sbrak{\frac{d^3}{dz^3}Y\sbrak{Z}}_{z=1} =& E\sbrak{Y^3}-3E\sbrak{Y^2}+2E\sbrak{Y}
+     \label{eq:d3}
+     \\=&\frac{3 z}{2} - \frac{6}{z^{5}} - \frac{15}{2 z^{7}}
+     \\=&-12
+\end{align}     
+     
+\begin{align}
+    \begin{split}
+         &\sbrak{\frac{d^4}{dz^4}Y\sbrak{Z}}_{z=1} \\&\quad= E\sbrak{Y^4}-6E\sbrak{Y^3}+11E\sbrak{Y^2}-6E\sbrak{Y}
+    \end{split}
+    \label{eq:d4}
+    \\&\quad=\frac{3}{2} + \frac{30}{z^{6}} + \frac{105}{2 z^{8}}
+    \\&\quad=84
+\end{align}
+
+By manipulating equation \eqref{eq:d1} ,\eqref{eq:d2} ,\eqref{eq:d3} and \eqref{eq:d4}
+\begin{multline}
+    E\sbrak{Y^4}=\sbrak{\frac{d^4}{dz^4}Y\sbrak{Z}}_{z=1} + 6 \cdot \sbrak{\frac{d^3}{dz^3}Y\sbrak{Z}}_{z=1} \\+ 7 \cdot \sbrak{\frac{d^2}{dz^2}Y\sbrak{Z}}_{z=1} +25 \cdot \sbrak{\frac{d}{dz}Y\sbrak{Z}}_{z=1}
+\end{multline}
+
+\begin{align*}
+    \mbf{\therefore E\sbrak{Y^4}=84+6\cdot\brak{-12}+7\cdot4+25\cdot0=40}
+\end{align*}
 
 \end{document}

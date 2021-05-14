@@ -141,7 +141,11 @@ https://github.com/Ganesh-RB/AI1103prob-and-randomvariables/Assignment4
 \end{lstlisting}
 
 \section{Problem}
-CSIR UGC NET EXAM (Dec 2012) Q 51\\ Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
+{
+\centering CSIR UGC NET EXAM (Dec 2012) Q 51
+
+}
+Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
 \begin{multicols}{4}
 \begin{enumerate}
     \item $4$
@@ -152,35 +156,46 @@ CSIR UGC NET EXAM (Dec 2012) Q 51\\ Suppose $X1,X2,X3,X4$ are i.i.d random varia
 \end{multicols}
 
 \section{Solution}
-By defining ${Z}$ transform of $X_i$ as $X_i\sbrak{z}$ for $i \in \cbrak{1,2,3,4} $
+\textbf{Z Transform : }
+For a discrete random variable $X$ , $Z$ transform of $X \, \equiv$ $E\brak{z^X}$
 \begin{align}
-    X_i\sbrak{z}=\frac{1}{2}\cdot z + \frac{1}{2} \cdot z^{-1}=\frac{z+z^{-1}}{2}
+    X\brak{z} \equiv E\brak{z^X} = \sum_{i=-\infty}^{\infty} z^{x_i}\times\pr{x_i}
+\end{align}
+
+By defining ${Z}$ transform of $X_i$ for $i \in \cbrak{1,2,3,4} $
+\begin{align}
+    X_i\brak{z}=\frac{1}{2}\times z + \frac{1}{2} \times z^{-1}=\frac{z+z^{-1}}{2}
 \end{align}
 
 Let $Y=X_1+X_2+X_3+X_4$ , then
 \begin{align}
-    Y\sbrak{z}=& X_1\sbrak{z} \cdot X_2\sbrak{z} \cdot X_3\sbrak{z} \cdot X_4\sbrak{z} 
+    Y\brak{z}=& X_1\brak{z} \times X_2\brak{z} \times X_3\brak{z} \times X_4\brak{z} 
     \\ =& \brak{\frac{z+z^{-1}}{2}}^4
     \label{eq-z_Transf_Y}
 \end{align}
 
-Taking derivatives of $Y\sbrak{z}$
+derivatives of $z$ Transform
 \begin{align}
-    \sbrak{\frac{d}{dz}Y\sbrak{Z}}_{z=1} =& E\sbrak{Y}
+    \sbrak{\frac{d}{dz}Y\brak{Z}}_{z=1} =& \sbrak{ \sum_{i=-\infty}^{\infty} y_i z^{y_i-1}\times \pr{y_i}}_{z=1}
+    \\=&\sum_{i=-\infty}^{\infty} y_i \times \pr{y_i}
+    \\=&E\brak{Y}
     \label{eq:d1}
     \\=&\frac{z^{3}}{4} + \frac{z}{2} - \frac{1}{2 z^{3}} - \frac{1}{4 z^{5}}
     \\=&0
 \end{align}    
     
 \begin{align}
-    \sbrak{\frac{d^2}{dz^2}Y\sbrak{Z}}_{z=1} =& E\sbrak{Y^2}-E\sbrak{Y}
+    \sbrak{\frac{d^2}{dz^2}Y\brak{Z}}_{z=1} =& \sum_{i=-\infty}^{\infty} y_i\brak{y_i-1} \times \pr{y_i}
+    \\=&\sum_{i=-\infty}^{\infty} y_i^2 \times \pr{y_i} - \sum_{i=-\infty}^{\infty} y_i \times \pr{y_i}
+    \\=& E\brak{Y^2}-E\brak{Y}
     \label{eq:d2}
     \\=&\frac{3 z^{2}}{4} + \frac{1}{2} + \frac{3}{2 z^{4}} + \frac{5}{4 z^{6}}
     \\=&4
 \end{align}    
     
 \begin{align}
-     \sbrak{\frac{d^3}{dz^3}Y\sbrak{Z}}_{z=1} =& E\sbrak{Y^3}-3E\sbrak{Y^2}+2E\sbrak{Y}
+     \sbrak{\frac{d^3}{dz^3}Y\brak{Z}}_{z=1} =& \sum_{i=-\infty}^{\infty} \brak{y_i^3-3y_i^2+2y_i} \times \pr{y_i}
+     \\=& E\brak{Y^3}-3E\brak{Y^2}+2E\brak{Y}
      \label{eq:d3}
      \\=&\frac{3 z}{2} - \frac{6}{z^{5}} - \frac{15}{2 z^{7}}
      \\=&-12
@@ -188,20 +203,22 @@ Taking derivatives of $Y\sbrak{z}$
      
 \begin{align}
     \begin{split}
-         &\sbrak{\frac{d^4}{dz^4}Y\sbrak{Z}}_{z=1} \\&\quad= E\sbrak{Y^4}-6E\sbrak{Y^3}+11E\sbrak{Y^2}-6E\sbrak{Y}
+         &\sbrak{\frac{d^4}{dz^4}Y\brak{Z}}_{z=1}
+         \\&=\sum_{i=-\infty}^{\infty} \brak{y_i^4-6y_i^3+11y_i^2-6y_i} \times \pr{y_i}
     \end{split}
+    \\&= E\brak{Y^4}-6E\brak{Y^3}+11E\brak{Y^2}-6E\brak{Y}
     \label{eq:d4}
-    \\&\quad=\frac{3}{2} + \frac{30}{z^{6}} + \frac{105}{2 z^{8}}
-    \\&\quad=84
+    \\&=\frac{3}{2} + \frac{30}{z^{6}} + \frac{105}{2 z^{8}}
+    \\&=84
 \end{align}
 
 By manipulating equation \eqref{eq:d1} ,\eqref{eq:d2} ,\eqref{eq:d3} and \eqref{eq:d4}
 \begin{multline}
-    E\sbrak{Y^4}=\sbrak{\frac{d^4}{dz^4}Y\sbrak{Z}}_{z=1} + 6 \cdot \sbrak{\frac{d^3}{dz^3}Y\sbrak{Z}}_{z=1} \\+ 7 \cdot \sbrak{\frac{d^2}{dz^2}Y\sbrak{Z}}_{z=1} +25 \cdot \sbrak{\frac{d}{dz}Y\sbrak{Z}}_{z=1}
+    E\brak{Y^4}=\sbrak{\frac{d^4}{dz^4}Y\brak{Z}}_{z=1} + 6 \times \sbrak{\frac{d^3}{dz^3}Y\brak{Z}}_{z=1} \\+ 7 \times \sbrak{\frac{d^2}{dz^2}Y\brak{Z}}_{z=1} +25 \times \sbrak{\frac{d}{dz}Y\brak{Z}}_{z=1}
 \end{multline}
 
 \begin{align*}
-    \mbf{\therefore E\sbrak{Y^4}=84+6\cdot\brak{-12}+7\cdot4+25\cdot0=40}
+    \mbf{\therefore E\brak{Y^4}=84+6\times\brak{-12}+7\times4+25\times0=40}
 \end{align*}
 
 \end{document}

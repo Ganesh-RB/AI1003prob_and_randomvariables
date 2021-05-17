@@ -156,69 +156,39 @@ Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with
 \end{multicols}
 
 \section{Solution}
-\textbf{Z Transform : }
-For a discrete random variable $X$ , $Z$ transform of $X \, \equiv$ $E\brak{z^X}$
+\textbf{Moment generating function : }
+For a discrete random variable $X$ 
 \begin{align}
-    X\brak{z} \equiv E\brak{z^X} = \sum_{i=-\infty}^{\infty} z^{x_i}\times\pr{x_i}
+    M_{X}\brak{t} \equiv E\brak{e^{t X}} = \sum_{k=-\infty}^{\infty} e^{t k}\times {\text{Pr}}_X\brak{k}
+\end{align}
+$n^{\text{th}}$ Moment of $X$
+\begin{align}
+    {\sbrak{\frac{d^n}{d t^n}Y\brak{t}}}_{t=0}=&{\sbrak{\sum_{k=-\infty}^{\infty} k^n \times e^{t k} \times {\text{Pr}}_X\brak{k}}}_{t=0}
+    \\=&\sum_{k=-\infty}^{\infty} k^n \times {\text{Pr}}_X\brak{k}
+    \\=&E\brak{X^n}
 \end{align}
 
-By defining ${Z}$ transform of $X_i$ for $i \in \cbrak{1,2,3,4} $
+By defining Moment generating function of $X_i$ for $i \in \cbrak{1,2,3,4} $
 \begin{align}
-    X_i\brak{z}=\frac{1}{2}\times z + \frac{1}{2} \times z^{-1}=\frac{z+z^{-1}}{2}
+    M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
 \end{align}
 
-Let $Y=X_1+X_2+X_3+X_4$ , then
+Let $Y=X_1+X_2+X_3+X_4$ , then by convolution
 \begin{align}
-    Y\brak{z}=& X_1\brak{z} \times X_2\brak{z} \times X_3\brak{z} \times X_4\brak{z} 
-    \\ =& \brak{\frac{z+z^{-1}}{2}}^4
+    M_{Y}\brak{t}=& M_{X_1}\brak{t} \times M_{X_2}\brak{t} \times M_{X_3}\brak{t} \times M_{X_4}\brak{t} 
+    \\ =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
     \label{eq-z_Transf_Y}
 \end{align}
 
-derivatives of $z$ Transform
 \begin{align}
-    \sbrak{\frac{d}{dz}Y\brak{Z}}_{z=1} =& \sbrak{ \sum_{i=-\infty}^{\infty} y_i z^{y_i-1}\times \pr{y_i}}_{z=1}
-    \\=&\sum_{i=-\infty}^{\infty} y_i \times \pr{y_i}
-    \\=&E\brak{Y}
-    \label{eq:d1}
-    \\=&\frac{z^{3}}{4} + \frac{z}{2} - \frac{1}{2 z^{3}} - \frac{1}{4 z^{5}}
-    \\=&0
-\end{align}    
-    
-\begin{align}
-    \sbrak{\frac{d^2}{dz^2}Y\brak{Z}}_{z=1} =& \sum_{i=-\infty}^{\infty} y_i\brak{y_i-1} \times \pr{y_i}
-    \\=&\sum_{i=-\infty}^{\infty} y_i^2 \times \pr{y_i} - \sum_{i=-\infty}^{\infty} y_i \times \pr{y_i}
-    \\=& E\brak{Y^2}-E\brak{Y}
-    \label{eq:d2}
-    \\=&\frac{3 z^{2}}{4} + \frac{1}{2} + \frac{3}{2 z^{4}} + \frac{5}{4 z^{6}}
-    \\=&4
-\end{align}    
-    
-\begin{align}
-     \sbrak{\frac{d^3}{dz^3}Y\brak{Z}}_{z=1} =& \sum_{i=-\infty}^{\infty} \brak{y_i^3-3y_i^2+2y_i} \times \pr{y_i}
-     \\=& E\brak{Y^3}-3E\brak{Y^2}+2E\brak{Y}
-     \label{eq:d3}
-     \\=&\frac{3 z}{2} - \frac{6}{z^{5}} - \frac{15}{2 z^{7}}
-     \\=&-12
-\end{align}     
-     
-\begin{align}
-    \begin{split}
-         &\sbrak{\frac{d^4}{dz^4}Y\brak{Z}}_{z=1}
-         \\&=\sum_{i=-\infty}^{\infty} \brak{y_i^4-6y_i^3+11y_i^2-6y_i} \times \pr{y_i}
-    \end{split}
-    \\&= E\brak{Y^4}-6E\brak{Y^3}+11E\brak{Y^2}-6E\brak{Y}
-    \label{eq:d4}
-    \\&=\frac{3}{2} + \frac{30}{z^{6}} + \frac{105}{2 z^{8}}
-    \\&=84
+    E\brak{Y^4}=&{\sbrak{\frac{d^4}{d t^4}Y\brak{t}}}_{t=0}
+    \\=&{\sbrak{\frac{256e^{4t}+64e^{2t}+64e^{-2t}+256e^{-4t}}{16}}}_{t=0}
+    \\=&\frac{640}{16}=40
 \end{align}
 
-By manipulating equation \eqref{eq:d1} ,\eqref{eq:d2} ,\eqref{eq:d3} and \eqref{eq:d4}
-\begin{multline}
-    E\brak{Y^4}=\sbrak{\frac{d^4}{dz^4}Y\brak{Z}}_{z=1} + 6 \times \sbrak{\frac{d^3}{dz^3}Y\brak{Z}}_{z=1} \\+ 7 \times \sbrak{\frac{d^2}{dz^2}Y\brak{Z}}_{z=1} +25 \times \sbrak{\frac{d}{dz}Y\brak{Z}}_{z=1}
-\end{multline}
+{\centering
+$\mbf{\therefore E\brak{Y^4}=40}$
 
-\begin{align*}
-    \mbf{\therefore E\brak{Y^4}=84+6\times\brak{-12}+7\times4+25\times0=40}
-\end{align*}
+}
 
 \end{document}

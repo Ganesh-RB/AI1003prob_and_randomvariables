@@ -145,7 +145,7 @@ https://github.com/Ganesh-RB/AI1103prob-and-randomvariables/Assignment4
 \centering CSIR UGC NET EXAM (Dec 2012) Q 51
 
 }
-Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
+Suppose $X_1,X_2,X_3,X_4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
 \begin{multicols}{4}
 \begin{enumerate}
     \item $4$
@@ -156,19 +156,33 @@ Suppose $X1,X2,X3,X4$ are i.i.d random variables taking values $1$ and $-1$ with
 \end{multicols}
 
 \section{Solution}
-\textbf{Moment generating function : }
-For a discrete random variable $X$ 
+\begin{definition}[Moment generating function]
+    For a discrete random variable $X$  
+    \begin{align}
+        M_{X}\brak{t} \equiv E\brak{e^{t X}} = \sum_{k=-\infty}^{\infty} e^{t k}\times P_X\brak{k}
+    \end{align}
+\end{definition}
+
+\begin{theorem}
+$n^{\text{th}}$ Moment of $X$ is equivalent to $E\brak{X^n}$
+\label{nth-Moment-Theorem}
+\end{theorem}
+
+\begin{proof}
 \begin{align}
-    M_{X}\brak{t} \equiv E\brak{e^{t X}} = \sum_{k=-\infty}^{\infty} e^{t k}\times {\text{Pr}}_X\brak{k}
-\end{align}
-$n^{\text{th}}$ Moment of $X$
-\begin{align}
-    {\sbrak{\frac{d^n}{d t^n}Y\brak{t}}}_{t=0}=&{\sbrak{\sum_{k=-\infty}^{\infty} k^n \times e^{t k} \times {\text{Pr}}_X\brak{k}}}_{t=0}
-    \\=&\sum_{k=-\infty}^{\infty} k^n \times {\text{Pr}}_X\brak{k}
+    {\sbrak{\frac{d^n}{d t^n}M_{X}\brak{t}}}_{t=0}=&{\sbrak{\sum_{k=-\infty}^{\infty} k^n \times e^{t k} \times P_X\brak{k}}}_{t=0}
+    \\=&\sum_{k=-\infty}^{\infty} k^n \times P_X\brak{k}
     \\=&E\brak{X^n}
 \end{align}
+\end{proof}
 
-By defining Moment generating function of $X_i$ for $i \in \cbrak{1,2,3,4} $
+$X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
+with,
+\begin{align}
+    \pr{X_i=+1}=&\frac{1}{2}
+    \\\pr{X_i=-1}=&\frac{1}{2}
+\end{align}
+By defining Moment generating function of $X_i$
 \begin{align}
     M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
 \end{align}
@@ -177,11 +191,10 @@ Let $Y=X_1+X_2+X_3+X_4$ , then by convolution
 \begin{align}
     M_{Y}\brak{t}=& M_{X_1}\brak{t} \times M_{X_2}\brak{t} \times M_{X_3}\brak{t} \times M_{X_4}\brak{t} 
     \\ =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
-    \label{eq-z_Transf_Y}
 \end{align}
 
 \begin{align}
-    E\brak{Y^4}=&{\sbrak{\frac{d^4}{d t^4}Y\brak{t}}}_{t=0}
+    E\brak{Y^4}=&{\sbrak{\frac{d^4}{d t^4}M_Y\brak{t}}}_{t=0} 
     \\=&{\sbrak{\frac{256e^{4t}+64e^{2t}+64e^{-2t}+256e^{-4t}}{16}}}_{t=0}
     \\=&\frac{640}{16}=40
 \end{align}

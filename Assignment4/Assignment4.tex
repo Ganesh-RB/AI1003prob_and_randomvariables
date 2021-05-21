@@ -190,17 +190,18 @@ By defining Moment generating function of $X_i$
 Let $Y=X_1+X_2+X_3+X_4$ , then by convolution
 \begin{align}
     M_{Y}\brak{t}=& M_{X_1}\brak{t} \times M_{X_2}\brak{t} \times M_{X_3}\brak{t} \times M_{X_4}\brak{t} 
-    \\ =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
+    \\M_{Y}\brak{t} =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
 \end{align}
-
+Now 
 \begin{align}
     E\brak{Y^4}=&{\sbrak{\frac{d^4}{d t^4}M_Y\brak{t}}}_{t=0} 
-    \\=&{\sbrak{\frac{256e^{4t}+64e^{2t}+64e^{-2t}+256e^{-4t}}{16}}}_{t=0}
-    \\=&\frac{640}{16}=40
+    \\=&{\sbrak{\frac{d^4}{d t^4}\brak{\frac{e^{t}+e^{-t}}{2}}^4}}_{t=0}
+    \\=&{\sbrak{\cfrac{256e^{4t}+64e^{2t}+64e^{-2t}+256e^{-4t}}{16}}}_{t=0}
+    \\E\brak{Y^4}=&\frac{640}{16}=40
 \end{align}
 
 {\centering
-$\mbf{\therefore E\brak{Y^4}=40}$
+$\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
 
 }
 

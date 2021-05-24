@@ -156,24 +156,29 @@ Suppose $X_1,X_2,X_3,X_4$ are i.i.d random variables taking values $1$ and $-1$ 
 \end{multicols}
 
 \section{Solution}
+Taylor series for $e^x$
+\begin{align}
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...=\sum_{k=0}^{\infty} \frac{x^k}{k!}.
+\end{align}
 \begin{definition}[Moment generating function]
     For a discrete random variable $X$  
     \begin{align}
-        M_{X}\brak{t} \equiv E\brak{e^{t X}} = \sum_{k=-\infty}^{\infty} e^{t k}\times P_X\brak{k}
+        M_{X}\brak{t} \equiv E\brak{e^{t X}} = \sum_{k=-\infty}^{\infty} e^{t k}\times p_X\brak{k}
     \end{align}
 \end{definition}
 
 \begin{theorem}
-$n^{\text{th}}$ Moment of $X$ is equivalent to $E\brak{X^n}$
+$n^{\text{th}}$ Moment of $X$ \brak{\equiv E\brak{X^n}} is coefficient of $\frac{t^n}{n!}$ in Taylor expansion of $M_X(t)$
 \label{nth-Moment-Theorem}
 \end{theorem}
 
 \begin{proof}
 \begin{align}
-    {\sbrak{\frac{d^n}{d t^n}M_{X}\brak{t}}}_{t=0}=&{\sbrak{\sum_{k=-\infty}^{\infty} k^n \times e^{t k} \times P_X\brak{k}}}_{t=0}
-    \\=&\sum_{k=-\infty}^{\infty} k^n \times P_X\brak{k}
-    \\=&E\brak{X^n}
+    e^{t X}=&\sum_{k=0}^{\infty} \frac{\brak{tX}^k}{k!}
+    \\=&\sum_{k=0}^{\infty}X^k \frac{{t}^k}{k!}
+    \\E\brak{e^{t X}}=&\sum_{k=0}^{\infty}E\brak{X^k} \frac{{t}^k}{k!}
 \end{align}
+$\therefore$ $E\brak{X^n}$ is coefficient of $\frac{{t}^n}{n!}$ in Taylor expansion of $M_X(t) \equiv E\brak{e^{t X}}$  
 \end{proof}
 
 $X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
@@ -187,16 +192,25 @@ By defining Moment generating function of $X_i$
     M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
 \end{align}
 
-Let $Y=X_1+X_2+X_3+X_4$ , then by convolution
+Let $Y=\sum_{i=0}^{4}X_i$ , then by convolution
 \begin{align}
-    M_{Y}\brak{t}=& M_{X_1}\brak{t} \times M_{X_2}\brak{t} \times M_{X_3}\brak{t} \times M_{X_4}\brak{t} 
+    M_{Y}\brak{t}=& \prod_{i=1}^{4} M_{X_i}\brak{t} 
     \\M_{Y}\brak{t} =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
+    \\M_{Y}\brak{t} =& \frac{e^{4t}+4e^{2t}+6+4e^{-2t}+e^{-4t}}{16}
 \end{align}
-Now 
+By using Taylor expansion of $e^{4t}$, $e^{2t}$, $e^{-2t}$ and $e^{-4t}$
 \begin{align}
-    E\brak{Y^4}=&{\sbrak{\frac{d^4}{d t^4}M_Y\brak{t}}}_{t=0} 
-    \\=&{\sbrak{\frac{d^4}{d t^4}\brak{\frac{e^{t}+e^{-t}}{2}}^4}}_{t=0}
-    \\=&{\sbrak{\cfrac{256e^{4t}+64e^{2t}+64e^{-2t}+256e^{-4t}}{16}}}_{t=0}
+    M_Y(t)=1+ \frac{1}{16}\brak{ \sum_{k=1}^{\infty} 4^k+4(2)^k+4(-2)^k+(-4)^k\frac{t^k}{k!} }
+    \label{eqn:M_Y(t)}
+\end{align}
+
+By Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
+\begin{align}
+    E\brak{Y^n}=&\frac{4^n+4(2)^n+4(-2)^n+(-4)^n}{16} 
+\end{align}
+
+\begin{align}
+    E\brak{Y^4}=&\frac{4^4+4(2)^4+4(-2)^4+(-4)^4}{16} 
     \\E\brak{Y^4}=&\frac{640}{16}=40
 \end{align}
 

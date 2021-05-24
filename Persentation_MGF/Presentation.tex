@@ -1,0 +1,230 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+% \graphicspath{./figures/}
+
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\usetheme{Boadilla}
+
+\title{Moment Generating Function}
+\author{Ganesh Bombatkar-CS20BTECH11016}
+
+\institute{}
+\date{\today}
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+\section{Problem}
+\begin{frame}{}
+\begin{block}{Problem}    
+Suppose $X_1,X_2,X_3,X_4$ are i.i.d random variables taking values $1$ and $-1$ with probability $1/2$ each. Then $E\brak{X_1+X_2 +X_3 +X_4}^4$ equals
+\begin{enumerate}
+    \item $40$
+    \item $76$
+    \item $16$
+    \item $12$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\section{Solution}
+\begin{frame}{Solution}
+\begin{block}{}
+$X_i$, for $i \in \cbrak{1..4}$ are i.i.d random variables with
+\begin{align}
+    \pr{X_i=+1}=&\frac{1}{2}
+    \\\pr{X_i=-1}=&\frac{1}{2}
+\end{align}
+\end{block}
+
+\begin{block}{}
+Let $Y=X_1+X_2 +X_3 +X_4$
+\begin{table}[h]
+    \centering
+    \begin{tabular}{||c||c|c|c|c|c|c||}
+         \hline
+         \hline
+          $Y=k$ &  $-4$ & $-2$ & $0$ & $2$ & $4$ \\
+         \hline
+          $p_Y(k)$ & ${1}/{16}$ & ${1}/{4}$ & ${3}/{8}$ & ${1}/{4}$ & ${1}/{16}$\\
+         \hline
+         \hline
+    \end{tabular}
+    \caption{pmf Y}
+    \label{tab:probability_Y}
+\end{table}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+    \begin{block}{Expectation}
+    Expectation of discrete random variable $X$ denoted with $E(X)$
+    \begin{align}
+        E(x)=&\sum_{k}k\times p_X(k)
+        \\E\brak{X^n}=&\sum_{k}k^n\times p_X(k)
+    \end{align}
+    
+    \end{block}
+    \begin{block}{}
+        \begin{align}
+            E\brak{Y^4}=&\sum_{k}k^4\times p_X(k)
+            \\ =& 256\times \frac{1}{16}+              16\times \frac{1}{4}+             0\times \frac{3}{8}+             16\times \frac{1}{4}+               256\times \frac{1}{16}
+            \\E\brak{Y^4}=&40
+        \end{align}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}{Moment Generating Function}
+    \begin{definition}[Moment]
+    $n^{\text{th}}$ Moment of a random variable X is $E\brak{X^n}$ 
+    \end{definition}
+    
+    \begin{block}{}
+    Moments are useful in describing shape of any distribution
+    \begin{itemize}
+        \item First moment represent mean.
+        \item Second represents variance.
+        \item Third represent skewness, indicates any asymmetric ‘leaning’ to either left or right.
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Moment Generating function}
+\begin{frame}{Moment Generating Function}
+    \begin{definition}[Moment generating function]
+    Moment Generating Function (MGF) of a random variable $X$ is a function $M_X(t)$ defined as
+    \begin{align}
+        M_{X}\brak{t} = E\brak{e^{t X}}
+    \end{align}
+    $M_X(t)$ exist, if there exists $a$ positive constant $a$ such that $M_X(t)$ is finite for all $t \in [-a,a]$
+\end{definition}
+
+\begin{block}{}
+If $X$ is a discrete random variable 
+    \begin{align}
+        M_{X}\brak{t}  = \sum_{k=-\infty}^{\infty} e^{t k}\times p_X\brak{k}
+    \end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+    \begin{block}{Taylor series}
+    Taylor series for $e^x$
+\begin{align}
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...=\sum_{k=0}^{\infty} \frac{x^k}{k!}.
+\end{align}
+
+\end{block}
+\vspace{4pt}
+\begin{theorem}
+$n^{\text{th}}$ Moment of $X$ \brak{E\brak{X^n}} is coefficient of $\cfrac{t^n}{n!}$ in Taylor expansion of $M_X(t)$
+\label{nth-Moment-Theorem}
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}{}
+    \begin{proof}
+Taylor series of $e^{t X}$ 
+\begin{align}
+    e^{t X}=&\sum_{k=0}^{\infty} \frac{X^k{t}^k}{k!}
+\end{align}
+Taking expectation on both side
+\begin{align}
+    E\brak{e^{t X}}=&\sum_{k=0}^{\infty}E\brak{X^k} \frac{{t}^k}{k!}
+\end{align}
+$\therefore$ $E\brak{X^n}$ is coefficient of $\frac{{t}^n}{n!}$ in Taylor expansion of $M_X(t) \equiv E\brak{e^{t X}}$  
+\end{proof}
+\end{frame}
+
+\subsection{solution using MGF}
+\begin{frame}{Solution using MGF}
+\begin{block}{}
+$X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
+with,
+\begin{align}
+    \pr{X_i=+1}=&\frac{1}{2}
+    \\\pr{X_i=-1}=&\frac{1}{2}
+\end{align}
+\end{block}
+\begin{block}{}
+By defining Moment generating function of $X_i$
+\begin{align}
+    M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
+\end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+\begin{block}{}
+Let $Y=\sum_{i=0}^{4}X_i$ , then by convolution
+\begin{align}
+    M_{Y}\brak{t}=& \prod_{i=1}^{4} M_{X_i}\brak{t} 
+    \\M_{Y}\brak{t} =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
+    \\M_{Y}\brak{t} =& \frac{e^{4t}+4e^{2t}+6+4e^{-2t}+e^{-4t}}{16}
+\end{align}
+\end{block}
+\begin{block}{}
+By using Taylor expansion of $e^{4t}$, $e^{2t}$, $e^{-2t}$ and $e^{-4t}$
+\begin{align}
+    M_Y(t)=1+ \frac{1}{16}\brak{ \sum_{k=1}^{\infty} \brak{4^k+4(2)^k+4(-2)^k+(-4)^k}\frac{t^k}{k!} }
+    \label{eqn:M_Y(t)}
+\end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+By Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
+\begin{block}{}
+\begin{align}
+    E\brak{Y^n}=&\frac{4^n+4(2)^n+4(-2)^n+(-4)^n}{16} 
+\end{align}
+
+\begin{align}
+    E\brak{Y^4}=&\frac{4^4+4(2)^4+4(-2)^4+(-4)^4}{16} 
+    \\E\brak{Y^4}=&\frac{640}{16}=40
+\end{align}
+
+{\centering
+$\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
+
+}
+\end{block}
+\end{frame}
+\end{document}

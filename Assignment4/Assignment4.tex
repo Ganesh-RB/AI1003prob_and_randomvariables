@@ -156,10 +156,12 @@ Suppose $X_1,X_2,X_3,X_4$ are i.i.d random variables taking values $1$ and $-1$ 
 \end{multicols}
 
 \section{Solution}
-Taylor series for $e^x$
+\begin{definition}[Taylor series for $e^x$]
 \begin{align}
 e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...=\sum_{k=0}^{\infty} \frac{x^k}{k!}.
 \end{align}
+\end{definition}
+
 \begin{definition}[Moment generating function]
     For a discrete random variable $X$  
     \begin{align}
@@ -187,10 +189,12 @@ with,
     \pr{X_i=+1}=&\frac{1}{2}
     \\\pr{X_i=-1}=&\frac{1}{2}
 \end{align}
-By defining Moment generating function of $X_i$
+
+\begin{lemma}[Moment generating function of $X_i$]
 \begin{align}
     M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
 \end{align}
+\end{lemma}
 
 Let $Y=\sum_{i=0}^{4}X_i$ , then by convolution
 \begin{align}
@@ -199,16 +203,24 @@ Let $Y=\sum_{i=0}^{4}X_i$ , then by convolution
     \\M_{Y}\brak{t} =& \frac{e^{4t}+4e^{2t}+6+4e^{-2t}+e^{-4t}}{16}
 \end{align}
 By using Taylor expansion of $e^{4t}$, $e^{2t}$, $e^{-2t}$ and $e^{-4t}$
+
+\begin{corollary}[Taylor expansion of $M_Y(t)$]
 \begin{align}
     M_Y(t)=1+ \frac{1}{16}\brak{ \sum_{k=1}^{\infty} 4^k+4(2)^k+4(-2)^k+(-4)^k\frac{t^k}{k!} }
     \label{eqn:M_Y(t)}
 \end{align}
+\end{corollary}
 
 By Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
+\begin{theorem}
+for $n \geq 1$
 \begin{align}
     E\brak{Y^n}=&\frac{4^n+4(2)^n+4(-2)^n+(-4)^n}{16} 
 \end{align}
+\label{exp_yn}
+\end{theorem}
 
+Thus follows
 \begin{align}
     E\brak{Y^4}=&\frac{4^4+4(2)^4+4(-2)^4+(-4)^4}{16} 
     \\E\brak{Y^4}=&\frac{640}{16}=40

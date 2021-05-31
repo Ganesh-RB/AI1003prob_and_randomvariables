@@ -160,6 +160,7 @@ Suppose $X_1,X_2,X_3,X_4$ are i.i.d random variables taking values $1$ and $-1$ 
 \begin{align}
 e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...=\sum_{k=0}^{\infty} \frac{x^k}{k!}.
 \end{align}
+\label{def-MGF}
 \end{definition}
 
 \begin{definition}[Moment generating function]
@@ -190,10 +191,12 @@ with,
     \\\pr{X_i=-1}=&\frac{1}{2}
 \end{align}
 
-\begin{lemma}[Moment generating function of $X_i$]
+\begin{lemma}
+Moment Generating Function of random variable $X_i$ is given by 
 \begin{align}
     M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
 \end{align}
+Above result follows from definition \ref{def-MGF} 
 \end{lemma}
 
 Let $Y=\sum_{i=0}^{4}X_i$ , then by convolution
@@ -210,19 +213,19 @@ By using Taylor expansion of $e^{4t}$, $e^{2t}$, $e^{-2t}$ and $e^{-4t}$
     \label{eqn:M_Y(t)}
 \end{align}
 \end{corollary}
-
-By Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
+ 
 \begin{theorem}
-for $n \geq 1$
+for $n \geq 1$ , $E\brak{Y^n}$ is given by
 \begin{align}
     E\brak{Y^n}=&\frac{4^n+4(2)^n+4(-2)^n+(-4)^n}{16} 
 \end{align}
+It follows from Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
 \label{exp_yn}
 \end{theorem}
 
-Thus follows
+
 \begin{align}
-    E\brak{Y^4}=&\frac{4^4+4(2)^4+4(-2)^4+(-4)^4}{16} 
+   \therefore E\brak{Y^4}=&\frac{4^4+4(2)^4+4(-2)^4+(-4)^4}{16} 
     \\E\brak{Y^4}=&\frac{640}{16}=40
 \end{align}
 

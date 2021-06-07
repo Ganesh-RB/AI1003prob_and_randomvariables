@@ -233,5 +233,76 @@ It follows from Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
 $\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
 
 }
+\section{verification}
+\begin{theorem}
+If ${ X_{1},\dots ,X_{n}}$ are i.i.d. random variables, all Bernoulli trials with success probability p, then their sum is distributed according to a binomial distribution with parameters $n$ and $p$
+
+{\centering
+${\displaystyle \sum _{k=1}^{n}X_{k}\sim  {B} (n,p)}$
+
+}
+\label{binom_theorem}
+\end{theorem}
+
+For a binomial random variable $X$ with parameters $n$ and $p$
+\begin{align}
+    E\brak{X}=& n p 
+    \\E\brak{X^2}=& p^2n(n-1)+ p n
+    \\E\brak{X^3}=& p^3n(n-1)(n-2)+3p^2n(n-1)+ p n
+    \\
+    \begin{split}
+         E\brak{X^4}=& p^4n(n-1)(n-2)(n-3)
+    \\&+6p^3n(n-1)(n-2)\\&\qquad+7p^2 n(n-1) +n p
+    \end{split}
+\end{align}
+
+
+Let random variables $X'_i=\frac{X_i+1}{2}$ then,
+\begin{align}
+    \pr{X'_i=1}=&\frac{1}{2}
+    \\\pr{X'_i=0}=&\frac{1}{2}
+\end{align}
+
+So $X'_i$ are Bernoulli random variables with $p=0.5$
+
+As 
+\begin{align}
+Y=\sum_{i=1}^{4}X_i
+\end{align} 
+
+similarly let 
+\begin{align}
+Z=&\sum_{i=1}^{4}X'_i
+\\ Z=&\sum_{i=1}^{4} \frac{X_i+1}{2}
+\\ Z=&\frac{Y}{2} + 2
+\end{align}
+
+Here $Z$ will be  binomial random variable with parameter $n=4$ and $p=0.5$ 
+
+Thus follows
+\begin{align}
+    E\brak{Z}=& 2
+    \\E\brak{Z^2}=& 5
+    \\E\brak{Z^3}=& 14
+    \\E\brak{Z^4}=& 42.5
+\end{align}
+
+Now
+\begin{align}
+    {Y^4}=16{(Z-2)^4}
+\end{align}
+\begin{align}
+    {Y^4}=16\brak{Z^4-8z^3+24Z^2-32Z+16}
+\end{align}
+
+\begin{align}
+\begin{split}
+    E\brak{Y^4}=&16\Bigl(E\brak{Z^4}-8E\brak{z^3}
+    \\&+24E\brak{Z^2}-32E\brak{Z}+16\Bigr)
+\end{split}    
+    \\=&16\brak{42.5-8\times 14+24\times 5-32\times 2+16}
+    \\=&16\times 2.5
+    \\=&40
+\end{align}
 
 \end{document}

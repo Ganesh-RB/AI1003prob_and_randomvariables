@@ -155,85 +155,8 @@ Suppose $X_1,X_2,X_3,X_4$ are i.i.d random variables taking values $1$ and $-1$ 
 \end{enumerate}
 \end{multicols}
 
+
 \section{Solution}
-\begin{definition}[Taylor series for $e^x$]
-\begin{align}
-e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...=\sum_{k=0}^{\infty} \frac{x^k}{k!}.
-\end{align}
-\label{def-MGF}
-\end{definition}
-
-\begin{definition}[Moment generating function]
-    For a discrete random variable $X$  
-    \begin{align}
-        M_{X}\brak{t} \equiv E\brak{e^{t X}} = \sum_{k=-\infty}^{\infty} e^{t k}\times p_X\brak{k}
-    \end{align}
-\end{definition}
-
-\begin{theorem}
-$n^{\text{th}}$ Moment of $X$ \brak{\equiv E\brak{X^n}} is coefficient of $\frac{t^n}{n!}$ in Taylor expansion of $M_X(t)$
-\label{nth-Moment-Theorem}
-\end{theorem}
-
-\begin{proof}
-\begin{align}
-    e^{t X}=&\sum_{k=0}^{\infty} \frac{\brak{tX}^k}{k!}
-    \\=&\sum_{k=0}^{\infty}X^k \frac{{t}^k}{k!}
-    \\E\brak{e^{t X}}=&\sum_{k=0}^{\infty}E\brak{X^k} \frac{{t}^k}{k!}
-\end{align}
-$\therefore$ $E\brak{X^n}$ is coefficient of $\frac{{t}^n}{n!}$ in Taylor expansion of $M_X(t) \equiv E\brak{e^{t X}}$  
-\end{proof}
-
-$X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
-with,
-\begin{align}
-    \pr{X_i=+1}=&\frac{1}{2}
-    \\\pr{X_i=-1}=&\frac{1}{2}
-\end{align}
-
-\begin{lemma}
-Moment Generating Function of random variable $X_i$ is given by 
-\begin{align}
-    M_{X_i}\brak{t}=\frac{1}{2}\times e^{-t} + \frac{1}{2} \times e^{t}=\frac{e^{t}+e^{-t}}{2}
-\end{align}
-Above result follows from definition \ref{def-MGF} 
-\end{lemma}
-
-Let $Y=\sum_{i=0}^{4}X_i$ , then by convolution
-\begin{align}
-    M_{Y}\brak{t}=& \prod_{i=1}^{4} M_{X_i}\brak{t} 
-    \\M_{Y}\brak{t} =& \brak{\frac{e^{t}+e^{-t}}{2}}^4
-    \\M_{Y}\brak{t} =& \frac{e^{4t}+4e^{2t}+6+4e^{-2t}+e^{-4t}}{16}
-\end{align}
-By using Taylor expansion of $e^{4t}$, $e^{2t}$, $e^{-2t}$ and $e^{-4t}$
-
-\begin{corollary}[Taylor expansion of $M_Y(t)$]
-\begin{align}
-    M_Y(t)=1+ \frac{1}{16}\brak{ \sum_{k=1}^{\infty} 4^k+4(2)^k+4(-2)^k+(-4)^k\frac{t^k}{k!} }
-    \label{eqn:M_Y(t)}
-\end{align}
-\end{corollary}
- 
-\begin{theorem}
-for $n \geq 1$ , $E\brak{Y^n}$ is given by
-\begin{align}
-    E\brak{Y^n}=&\frac{4^n+4(2)^n+4(-2)^n+(-4)^n}{16} 
-\end{align}
-It follows from Theorem \ref{nth-Moment-Theorem} and eqn: \eqref{eqn:M_Y(t)}
-\label{exp_yn}
-\end{theorem}
-
-
-\begin{align}
-   \therefore E\brak{Y^4}=&\frac{4^4+4(2)^4+4(-2)^4+(-4)^4}{16} 
-    \\E\brak{Y^4}=&\frac{640}{16}=40
-\end{align}
-
-{\centering
-$\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
-
-}
-\section{verification}
 \begin{theorem}
 If ${ X_{1},\dots ,X_{n}}$ are i.i.d. random variables, all Bernoulli trials with success probability p, then their sum is distributed according to a binomial distribution with parameters $n$ and $p$
 
@@ -244,6 +167,7 @@ ${\displaystyle \sum _{k=1}^{n}X_{k}\sim  {B} (n,p)}$
 \label{binom_theorem}
 \end{theorem}
 
+\begin{corollary}
 For a binomial random variable $X$ with parameters $n$ and $p$ and $q=1-p$
 \begin{align}
     E\brak{X}=& n p 
@@ -255,8 +179,13 @@ For a binomial random variable $X$ with parameters $n$ and $p$ and $q=1-p$
         - 11 n p^{2} q  \\& + 7 n p q - 6 p q^{2} + q\Bigr)
     \end{split}
 \end{align}
-
-
+\end{corollary}
+Given that $X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
+with,
+\begin{align}
+    \pr{X_i=+1}=&\frac{1}{2}
+    \\\pr{X_i=-1}=&\frac{1}{2}
+\end{align}
 Let random variables $X'_i=\frac{X_i+1}{2}$ then,
 \begin{align}
     \pr{X'_i=1}=&\frac{1}{2}
@@ -265,7 +194,7 @@ Let random variables $X'_i=\frac{X_i+1}{2}$ then,
 
 So $X'_i$ are Bernoulli random variables with $p=0.5$
 
-As 
+Let assume random variable $Y$ as
 \begin{align}
 Y=\sum_{i=1}^{4}X_i
 \end{align} 
@@ -300,9 +229,9 @@ Now
     E\brak{Y^4}=&16\Bigl(E\brak{Z^4}-8E\brak{z^3}
     \\&+24E\brak{Z^2}-32E\brak{Z}+16\Bigr)
 \end{split}    
-    \\=&16\brak{42.5-8\times 14+24\times 5-32\times 2+16}
-    \\=&16\times 2.5
-    \\=&40
+    \\E\brak{Y^4}=&16\brak{42.5-8\times 14+24\times 5-32\times 2+16}
+    \\E\brak{Y^4}=&16\times 2.5
+    \\E\brak{Y^4}=&40
 \end{align}
 
 {\centering
@@ -311,3 +240,12 @@ $\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
 }
 
 \end{document}
+
+$X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
+with,
+\begin{align}
+    \pr{X_i=+1}=&\frac{1}{2}
+    \\\pr{X_i=-1}=&\frac{1}{2}
+\end{align}
+
+Let $Y=\sum_{i=0}^{4}X_i$

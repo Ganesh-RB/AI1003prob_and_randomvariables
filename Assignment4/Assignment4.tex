@@ -244,15 +244,15 @@ ${\displaystyle \sum _{k=1}^{n}X_{k}\sim  {B} (n,p)}$
 \label{binom_theorem}
 \end{theorem}
 
-For a binomial random variable $X$ with parameters $n$ and $p$
+For a binomial random variable $X$ with parameters $n$ and $p$ and $q=1-p$
 \begin{align}
     E\brak{X}=& n p 
-    \\E\brak{X^2}=& p^2n(n-1)+ p n
-    \\E\brak{X^3}=& p^3n(n-1)(n-2)+3p^2n(n-1)+ p n
+    \\E\brak{X^2}=& n p \brak{n p+q}
+    \\E\brak{X^3}=& n p \brak{n^{2} p^{2} + 3 n p q - 2 p q + q}
     \\
     \begin{split}
-         E\brak{X^4}=& p^4n(n-1)(n-2)(n-3)
-    \\&+6p^3n(n-1)(n-2)\\&\qquad+7p^2 n(n-1) +n p
+         E\brak{X^4}=&n p \Bigl(n^{3} p^{3} + 6 n^{2} p^{2} q
+        - 11 n p^{2} q  \\& + 7 n p q - 6 p q^{2} + q\Bigr)
     \end{split}
 \end{align}
 
@@ -277,7 +277,7 @@ Z=&\sum_{i=1}^{4}X'_i
 \\ Z=&\frac{Y}{2} + 2
 \end{align}
 
-Here $Z$ will be  binomial random variable with parameter $n=4$ and $p=0.5$ 
+Here $Z$ will be  binomial random variable with parameter $n=4$ , $p=0.5$ and $q=0.5$ 
 
 Thus follows
 \begin{align}
@@ -304,5 +304,10 @@ Now
     \\=&16\times 2.5
     \\=&40
 \end{align}
+
+{\centering
+$\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
+
+}
 
 \end{document}

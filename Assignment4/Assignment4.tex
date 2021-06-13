@@ -179,6 +179,7 @@ For a binomial random variable $X$ with parameters $n$ and $p$ and $q=1-p$
         - 11 n p^{2} q  \\& + 7 n p q - 6 p q^{2} + q\Bigr)
     \end{split}
 \end{align}
+\label{corolary-momentof-Binom}
 \end{corollary}
 Given that $X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
 with,
@@ -202,21 +203,13 @@ Y=\sum_{i=1}^{4}X_i
 similarly let 
 \begin{align}
 Z=&\sum_{i=1}^{4}X'_i
+\\ \nonumber \text{By theorem \ref{binom_theorem} } &  Z \text{ is Binomial random variable }
 \\ Z=&\sum_{i=1}^{4} \frac{X_i+1}{2}
 \\ Z=&\frac{Y}{2} + 2
 \end{align}
 
-Here $Z$ will be  binomial random variable with parameter $n=4$ , $p=0.5$ and $q=0.5$ 
 
-Thus follows
-\begin{align}
-    E\brak{Z}=& 2
-    \\E\brak{Z^2}=& 5
-    \\E\brak{Z^3}=& 14
-    \\E\brak{Z^4}=& 42.5
-\end{align}
 
-Now
 \begin{align}
     {Y^4}=16{(Z-2)^4}
 \end{align}
@@ -229,9 +222,10 @@ Now
     E\brak{Y^4}=&16\Bigl(E\brak{Z^4}-8E\brak{z^3}
     \\&+24E\brak{Z^2}-32E\brak{Z}+16\Bigr)
 \end{split}    
-    \\E\brak{Y^4}=&16\brak{42.5-8\times 14+24\times 5-32\times 2+16}
-    \\E\brak{Y^4}=&16\times 2.5
-    \\E\brak{Y^4}=&40
+\end{align}
+Here $Z \sim {B} (4,0.5)$ thus by \ref{corolary-momentof-Binom}
+\begin{align}
+    E\brak{Y^4}=&40 &
 \end{align}
 
 {\centering
@@ -240,12 +234,3 @@ $\mbf{\therefore E\brak{X_1+X_2 +X_3 +X_4}^4=40}$
 }
 
 \end{document}
-
-$X_i$ are i.i.d random variable for $i \in \cbrak{1,2,3,4} $ 
-with,
-\begin{align}
-    \pr{X_i=+1}=&\frac{1}{2}
-    \\\pr{X_i=-1}=&\frac{1}{2}
-\end{align}
-
-Let $Y=\sum_{i=0}^{4}X_i$

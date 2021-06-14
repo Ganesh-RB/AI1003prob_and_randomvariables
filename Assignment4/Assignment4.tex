@@ -203,8 +203,21 @@ Y=\sum_{i=1}^{4}X_i
 similarly let 
 \begin{align}
 Z=&\sum_{i=1}^{4}X'_i
-\\ \nonumber \text{By theorem \ref{binom_theorem} } &  Z \text{ is Binomial random variable }
-\\ Z=&\sum_{i=1}^{4} \frac{X_i+1}{2}
+\end{align}
+
+
+\begin{corollary}
+$Z$  is Binomial random variable , \\from theorem \ref{binom_theorem}
+
+{\centering
+${\displaystyle Z \sim  {B} (4,0.5)}$
+
+}
+\label{cor-Z_as_binom}
+\end{corollary}
+
+\begin{align}
+Z=&\sum_{i=1}^{4} \frac{X_i+1}{2}
 \\ Z=&\frac{Y}{2} + 2
 \end{align}
 
@@ -223,7 +236,7 @@ Z=&\sum_{i=1}^{4}X'_i
     \\&+24E\brak{Z^2}-32E\brak{Z}+16\Bigr)
 \end{split}    
 \end{align}
-Here $Z \sim {B} (4,0.5)$ thus by \ref{corolary-momentof-Binom}
+From corollary \ref{corolary-momentof-Binom} and  \ref{cor-Z_as_binom}
 \begin{align}
     E\brak{Y^4}=&40 &
 \end{align}

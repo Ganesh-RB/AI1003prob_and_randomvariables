@@ -187,13 +187,18 @@ with,
     \pr{X_i=+1}=&\frac{1}{2}
     \\\pr{X_i=-1}=&\frac{1}{2}
 \end{align}
-Let random variables $X'_i=\frac{X_i+1}{2}$ then,
+\begin{lemma}
+Let random variables $M_i=\frac{X_i+1}{2}$ then,
+$M_i$ are Bernoulli random variables with $p=0.5$
+\end{lemma}
+\begin{proof}
 \begin{align}
-    \pr{X'_i=1}=&\frac{1}{2}
-    \\\pr{X'_i=0}=&\frac{1}{2}
+    \pr{M_i=1}=&\pr{X_i=1}=\frac{1}{2}
+    \\\pr{M_i=0}=&\pr{X_i=-1}=\frac{1}{2}
 \end{align}
+$\therefore$ $M_i$ are Bernoulli random variables with $p=0.5$
+\end{proof}
 
-So $X'_i$ are Bernoulli random variables with $p=0.5$
 
 Let assume random variable $Y$ as
 \begin{align}
@@ -202,7 +207,7 @@ Y=\sum_{i=1}^{4}X_i
 
 similarly let 
 \begin{align}
-Z=&\sum_{i=1}^{4}X'_i
+Z=&\sum_{i=1}^{4}M_i
 \end{align}
 
 
